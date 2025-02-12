@@ -1,0 +1,54 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 16px;
+}
+
+.paper {
+  padding: 16px;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 8px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.form {
+  width: 100%;
+}
+
+.submitButton {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.form a {
+  color: #1976d2;
+  font-weight: 500;
+}
+
+.form a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .container {
+    padding: 24px;
+  }
+
+  .paper {
+    padding: 32px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+} 

@@ -7,13 +7,13 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = async (email, password) => {
-    const response = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+    const response = await axios.post("https://timemanagement-api.onrender.com/api/auth/login", { email, password });
     setUser(response.data.user);
     localStorage.setItem("token", response.data.token);
   };
 
   const register = async (username, email, password) => {
-    const response = await axios.post("http://localhost:5000/api/auth/register", { username, email, password });
+    const response = await axios.post("https://timemanagement-api.onrender.com/api/auth/register", { username, email, password });
     setUser(response.data.user);
     localStorage.setItem("token", response.data.token);
   };

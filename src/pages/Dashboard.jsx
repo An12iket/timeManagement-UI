@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Navbar from "../components/Navbar";
 import TaskList from "../components/TaskList";
 import TaskForm from "../components/TaskForm";
-import CalendarView from "../components/CalenderView";
+import CalendarView from "../components/CalendarView";
 import axios from "axios";
 
 const Dashboard = () => {
@@ -16,7 +16,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/tasks", {
+        const response = await axios.get("https://timemanagement-api.onrender.com/api/tasks", {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         setTasks(response.data);
@@ -30,7 +30,7 @@ const Dashboard = () => {
   // Add a new task
   const handleAddTask = async (newTask) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/tasks", newTask, {
+      const response = await axios.post("https://timemanagement-api.onrender.com/api/tasks", newTask, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setTasks([...tasks, response.data]);
@@ -43,7 +43,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <Container>
+      <Container sx={{ mb: 20, mt: 10 }}>
         <Box sx={{ display: "flex", justifyContent: "center", my: 2 }}>
           <ToggleButtonGroup
             value={view}

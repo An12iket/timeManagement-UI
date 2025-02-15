@@ -49,12 +49,6 @@ const TaskList = ({ tasks, setTasks }) => {
         onChange={handleViewChange}
         sx={{ mb: 2 }}
       >
-        <ToggleButton value="list" aria-label="list view">
-          <ViewListIcon />
-        </ToggleButton>
-        <ToggleButton value="calendar" aria-label="calendar view">
-          <CalendarMonthIcon />
-        </ToggleButton>
       </ToggleButtonGroup>
 
       {view === 'list' ? (

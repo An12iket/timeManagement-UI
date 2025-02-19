@@ -7,15 +7,25 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = async (email, password) => {
-    const response = await axios.post("https://timemanagement-api.onrender.com/api/auth/login", { email, password });
-    setUser(response.data.user);
-    localStorage.setItem("token", response.data.token);
+    try{
+      const response = await axios.post("https://timemanagement-api.onrender.com/api/auth/login", { email, password });
+      setUser(response.data.user);
+      localStorage.setItem("token", response.data.token);
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
+    
   };
 
   const register = async (username, email, password) => {
-    const response = await axios.post("https://timemanagement-api.onrender.com/api/auth/register", { username, email, password });
-    setUser(response.data.user);
-    localStorage.setItem("token", response.data.token);
+    try{
+      const response = await axios.post("https://timemanagement-api.onrender.com/api/auth/register", { username, email, password });
+      setUser(response.data.user);
+      localStorage.setItem("token", response.data.token);  
+    } catch (error) {
+      console.error('Registration failed:', error);
+    }
+    
   };
 
   const logout = () => {
